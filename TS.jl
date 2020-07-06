@@ -20,7 +20,7 @@ using Plots
 # ts = TS(simulate,1.,1.,1.,1.,1.,1.,1.)
 # ts.simulate(range(0,stop=10))
 
-function f(u, ps, t)
+function ff(u, ps, t)
    #the five states
    sg4, sg1, sg4t4, N1, N2 = u
    # AHL Ara and params
@@ -43,10 +43,10 @@ function f(u, ps, t)
    # println(du...)
    return du
 end
-u0=[2,2,3,0,100]
+u0=[2,2,3,1,10]
 ps=[0.,2.,.1,.1,.1,.1,.1,.1,.1]
-tspan = (0.0,50.0)
-prob =ODEProblem(f, u0, tspan, ps)
+tspan = (0.0,10.0)
+prob =ODEProblem(ff, u0, tspan, ps)
 sol = Array(solve(prob))
 plot(sol[1,:], label = "sg4")
 plot!(sol[2,:], label = "sg1")
