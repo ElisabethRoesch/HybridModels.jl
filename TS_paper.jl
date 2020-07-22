@@ -1,4 +1,4 @@
-function ma_derivative()
+function dudt()
 
 
 
